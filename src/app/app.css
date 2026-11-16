@@ -1,0 +1,11 @@
+/* Le footer reste toujours en bas de la page */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  background-color: #f5f7fa;
+}

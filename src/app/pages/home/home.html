@@ -1,0 +1,15 @@
+<section class="hero text-white" id="accueil">
+  <div class="container py-5 text-center">
+    <span class="badge rounded-pill text-bg-light mb-3">{{ title }}</span>
+    <h1 class="display-5 fw-bold mb-3">Welcome to our App</h1>
+    <p class="lead mb-4 mx-auto hero-text">
+      Découvrez les meilleures conférences tech en Tunisie et réservez votre place en un clic.
+    </p>
+    <div class="d-flex flex-wrap justify-content-center gap-2">
+      <a href="#conferences" class="btn btn-light btn-lg px-4">Voir les conférences</a>
+      <button class="btn btn-outline-light btn-lg px-4" (click)="change()" [disabled]="state">
+        Change
+      </button>
+    </div>
+  </div>
+</section>

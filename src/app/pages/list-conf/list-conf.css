@@ -1,0 +1,37 @@
+.conf-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.conf-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Conférence complète : image un peu grisée */
+.conf-full .card-img-top {
+  filter: grayscale(70%);
+}
+
+.card-img-top {
+  height: 170px;
+  object-fit: cover;
+}
+
+.date-badge {
+  background: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.stat-box {
+  transition: transform 0.2s;
+}
+
+.stat-box:hover {
+  transform: translateY(-3px);
+}
