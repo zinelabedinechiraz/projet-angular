@@ -1,10 +1,9 @@
 // Modèle : décrit à quoi ressemble une conférence
-export interface Conference {
-  id: number;
+class Conference {
   title: string;
+  description: string;
+  date: string;
+  nbrMax: number;
+  nbrReservation: number;
   picture: string;
-  date: Date;
-  address: string;
-  available: boolean;
-  places: number;
 }

@@ -1,27 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [FormsModule,CommonModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home implements OnInit {
-  // attributes
-  title: string;
-  state: boolean;
-
-  // constructor
+export class Home {
+  list: Conference[];
+  searchTitle: string ="";
+//cycle de v
+//1-
   constructor() {
-    this.title = 'Home 4DAS 10';
-    this.state = false;
-  }
-
-  // methods
-  ngOnInit(): void {}
-
-  change(): void {
-    this.title = 'Home 4DAS 9';
-    this.state = true;
-  }
+    //services
+}
+//2-
+ngOnInit() {
+  this.list = [
+    {
+      title: "Conference Angular",
+      description: "web dev conference and workshop",
+      date:"12-06-2026",
+      nbrMax: 20,
+      nbrReservation: 19,
+      picture:"https://tse4.mm.bing.net/th/id/OIP.naBZzjkABE_0DXbmAuEhggHaEt?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+    },
+     {
+      title: "Conference React",
+      description: "web dev conference and workshop",
+      date:"12-06-2026",
+      nbrMax: 20,
+      nbrReservation: 19,
+      picture:"https://th.bing.com/th/id/OIP.cSShcLEtJV5oPcNajCV6sAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+    }
+     ]
+}
+participate(conf: Conference):void{
+  conf.nbrReservation++;
+}
 }

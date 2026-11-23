@@ -1,15 +1,58 @@
-<section class="hero text-white" id="accueil">
-  <div class="container py-5 text-center">
-    <span class="badge rounded-pill text-bg-light mb-3">{{ title }}</span>
-    <h1 class="display-5 fw-bold mb-3">Welcome to our App</h1>
-    <p class="lead mb-4 mx-auto hero-text">
-      Découvrez les meilleures conférences tech en Tunisie et réservez votre place en un clic.
-    </p>
-    <div class="d-flex flex-wrap justify-content-center gap-2">
-      <a href="#conferences" class="btn btn-light btn-lg px-4">Voir les conférences</a>
-      <button class="btn btn-outline-light btn-lg px-4" (click)="change()" [disabled]="state">
-        Change
-      </button>
-    </div>
-  </div>
-</section>
+<input
+  type="text"
+  name="search"
+  class="form-control mb-4"
+  placeholder="Search By Title"
+  [(ngModel)]="searchTitle">
+
+<div class="row">
+
+  @for (conf of list; track conf.title) {
+
+    @if (conf.title.toLowerCase().includes(searchTitle.toLowerCase()) || searchTitle == "") {
+
+      <div class="col-md-4 mb-4">
+
+        <div class="card" style="width: 18rem;">
+
+          <img
+            [src]="conf.picture"
+            class="card-img-top"
+            [alt]="conf.title"
+            style="height: 180px; object-fit: cover;">
+
+          <div class="card-body">
+
+            <h5 class="card-title">{{ conf.title }}</h5>
+
+            <p class="card-text">
+              <strong>Description:</strong> {{ conf.description }}
+              <br>
+
+              <strong>Date:</strong> {{ conf.date }}
+              <br>
+
+              <strong>Available places:</strong>
+              {{ conf.nbrMax - conf.nbrReservation }}
+              <br><br>
+
+              <button
+                class="btn btn-sm btn-success"
+                [disabled]="conf.nbrMax == conf.nbrReservation"
+                (click)="participate(conf)">
+                Participate
+              </button>
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    }
+
+  }
+
+</div>
