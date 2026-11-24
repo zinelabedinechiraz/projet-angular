@@ -1,0 +1,66 @@
+
+<input
+  type="text"
+  name="search"
+  class="form-control mb-4"
+  placeholder="Search By Title"
+  [(ngModel)]="searchtitle">
+
+<div class="row">
+
+  @for (conf of list; track conf.title) {
+
+    @if (conf.title.toLowerCase().includes(searchtitle.toLowerCase()) || searchtitle == "") {
+
+      <div class="col-md-4 mb-4">
+
+        <div class="card" style="width: 18rem;">
+
+          <img
+            [src]="conf.picture"
+            class="card-img-top conf-img"
+            [alt]="conf.title">
+
+          <div class="card-body">
+
+            <h5 class="card-title">{{ conf.title }}</h5>
+
+            <p class="card-text">
+              <strong>Description:</strong> {{ conf.description }}
+              <br>
+
+              <strong>Date:</strong> {{ conf.date }}
+              <br>
+
+              <strong>Available places:</strong> {{ conf.nbrMax - conf.nbrReservation }}<br><br>
+
+              @if (conf.nbrMax - conf.nbrReservation == 0) {
+                <!-- no places left: red -->
+                <button class="btn btn-sm btn-danger" >
+                  Participate
+                </button>
+              } @else if (conf.nbrMax - conf.nbrReservation < 10) {
+                <!-- less than 10 places left: orange -->
+                <button class="btn btn-sm btn-orange" (click)="participate(conf)">
+                  Participate
+                </button>
+              } @else {
+                <!-- still available: green -->
+                <button class="btn btn-sm btn-success" (click)="participate(conf)">
+                  Participate
+                </button>
+              }
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    }
+
+  }
+
+</div>

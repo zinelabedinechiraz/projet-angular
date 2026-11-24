@@ -1,12 +1,49 @@
-:host {
-  display: block;
+/* profile cards like the "Profil utilisateur" box in the prosit */
+.card {
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  border-left: 5px solid #2b6cb0;
+  border-radius: 16px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding-left: 20px;
 }
 
-.hero {
-  background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+/* round icon on the left */
+.card::before {
+  content: "👤";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #e8f0fe;
+  font-size: 28px;
 }
 
-.hero-text {
-  max-width: 600px;
-  opacity: 0.9;
+.card-title {
+  color: #1e3a5f;
+  font-weight: bold;
+}
+
+/* Liste des amis: green */
+.friends-card {
+  border-left-color: #2f855a;
+}
+
+.friends-card::before {
+  content: "👥";
+  background-color: #e6f4ea;
+}
+
+/* Notifications: orange */
+.notif-card {
+  border-left-color: #f59e0b;
+}
+
+.notif-card::before {
+  content: "🔔";
+  background-color: #fef3c7;
 }

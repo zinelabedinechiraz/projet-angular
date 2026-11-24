@@ -1,58 +1,57 @@
-<input
-  type="text"
-  name="search"
-  class="form-control mb-4"
-  placeholder="Search By Title"
-  [(ngModel)]="searchTitle">
-
 <div class="row">
 
-  @for (conf of list; track conf.title) {
+  @for (p of list; track p.nom) {
 
-    @if (conf.title.toLowerCase().includes(searchTitle.toLowerCase()) || searchTitle == "") {
+    <div class="col-md-4 mb-4">
 
-      <div class="col-md-4 mb-4">
+      <div class="card" style="width: 18rem;">
 
-        <div class="card" style="width: 18rem;">
+        <div class="card-body">
 
-          <img
-            [src]="conf.picture"
-            class="card-img-top"
-            [alt]="conf.title"
-            style="height: 180px; object-fit: cover;">
+          <h5 class="card-title">{{ p.prenom }} {{ p.nom }}</h5>
 
-          <div class="card-body">
+          <p class="card-text">
+            <strong>Nom:</strong> {{ p.nom }}
+            <br>
 
-            <h5 class="card-title">{{ conf.title }}</h5>
+            <strong>Prénom:</strong> {{ p.prenom }}
+            <br>
 
-            <p class="card-text">
-              <strong>Description:</strong> {{ conf.description }}
-              <br>
-
-              <strong>Date:</strong> {{ conf.date }}
-              <br>
-
-              <strong>Available places:</strong>
-              {{ conf.nbrMax - conf.nbrReservation }}
-              <br><br>
-
-              <button
-                class="btn btn-sm btn-success"
-                [disabled]="conf.nbrMax == conf.nbrReservation"
-                (click)="participate(conf)">
-                Participate
-              </button>
-
-            </p>
-
-          </div>
+            <strong>Email:</strong> {{ p.email }}
+          </p>
 
         </div>
 
       </div>
 
-    }
+    </div>
 
   }
 
+</div>
+
+
+<!-- Liste des amis -->
+<div class="card friends-card mb-4">
+  <div class="card-body">
+    <h5 class="card-title">Liste des amis</h5>
+    <ul>
+      @for (f of friends; track f) {
+        <li>{{ f }}</li>
+      }
+    </ul>
+  </div>
+</div>
+
+<!-- Zone de notifications -->
+<div class="card notif-card mb-4">
+  <div class="card-body">
+    <h5 class="card-title">Zone de notifications</h5>
+    <p>Vous avez 2 nouvelles notifications.</p>
+    <button (click)="show = !show">Afficher les notifications</button>
+    @if (show) {
+      <p class="mt-2">Nouvelle conférence Angular</p>
+      <p>Nouvelle conférence React</p>
+    }
+  </div>
 </div>

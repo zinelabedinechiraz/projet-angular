@@ -1,13 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'bootstrap/dist/css/bootstrap.min.css';
-
-/* Défilement fluide quand on clique sur un lien (#conferences, #contact...) */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Les sections ne passent pas sous le header collé en haut */
-section[id],
-footer[id] {
-  scroll-margin-top: 70px;
-}
